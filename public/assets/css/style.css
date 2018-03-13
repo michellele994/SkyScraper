@@ -1,0 +1,149 @@
+html
+{
+	height: 100%;
+	background-color: rgb(149,239,255);
+	overflow-x: hidden;
+}
+body {
+	margin-top: 5%;
+	text-align: center;
+	font-family: 'Baloo', cursive;
+	font-size: 20px;
+}
+h1 {
+	font-size: 56px;
+}
+h2 {
+	font-size: 48px;
+}
+h3 {
+	font-size: 36px;
+}
+h1, h2, h3 {
+	margin: 10px;
+}
+input {
+	height: 25px;
+	margin-left: 10px;
+}
+.wrapping{
+	width: 100%;
+	z-index: 0;
+}
+#top-left-cloud{
+	position: fixed;
+	left: 5%;
+	top: 10%;
+	z-index: -2;
+
+}
+#center-right-cloud{
+	position: fixed;
+	right: 0%;
+	top: 45%;
+	z-index: -2;
+}
+#titlebox{
+	position: relative;
+	margin: 0 auto;
+	height: 425px;
+}
+#titlecloud{
+	position: relative;
+	top: -10%;
+	margin: 0 auto;
+	padding: 30px;
+	z-index: -2;
+}
+#title {
+	position: relative;
+	margin: 0 auto;
+	letter-spacing: 4px;
+	font-size: 78px;
+	top: -69%;
+}
+#robot {
+	position: relative;
+	top: -39%;
+	margin-left: 55%;
+	z-index: 3;
+}
+#skyscraper {
+	position: relative;
+	width: 55%;
+	min-height: 500px;
+/*	background-image: url("brick.png");
+	background-repeat: repeat;*/
+	border-style: solid;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-width: 1px;
+	border-color: black;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	padding: 80px 20px 0px 20px;
+	background-color: rgb(255, 102, 102);
+	z-index: initial;
+}
+#building-body {
+	position: relative;
+	width: 80%;
+	min-height: 300px;
+	margin: 0 auto;
+}
+#grass-border {
+	position: absolute;
+	top: 75%;
+	left: 0;
+	background-image: url("../images/grass.png");
+	background-color: rgb(80, 254, 136);
+	background-repeat: repeat-x;
+	margin-left: calc(-50vw + 50%);
+	z-index: -1;
+	width: 100vw;
+	height: 30%;
+	padding-bottom: 100px;
+}
+#curtain {
+	position: relative;
+	bottom: -50px;
+	width: 55%;
+	height: 125px;
+	margin-left: 22.3%;
+	border: 1px solid black;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	background-image: url("../images/curtain.png");
+	background-repeat: repeat;
+	z-index: 2;
+}
+#door {
+	position: relative;
+	bottom: -1px;
+	width: 50%;
+	height: 250px;
+	margin-left: 25%;
+	background-color: rgb(180, 130, 37);
+	border: 1px solid black;
+	z-index: 1;
+	background-image: url("../images/door.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.nonDraggableImage{
+    -webkit-user-drag: none;
+}
+
+/*LOGIN PAGE*/
+#login-box {
+	margin: 0 auto;
+	width: 80%;
+	min-height: 250px;
+	border: 1px solid black;
+	border-radius: 10px;
+	z-index: 100;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+#form-group {
+	margin-top: 15%;
+}
