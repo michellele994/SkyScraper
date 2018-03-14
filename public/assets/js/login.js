@@ -1,20 +1,5 @@
 $(function() {
 
-	//MODAL
-	var modal = document.getElementById("signup-modal");
-
-	$("#signup-link").on("click", function() {
-		modal.style.display = "block";
-	});
-	$(".close").on("click", function() {
-		modal.style.display = "none";
-	})
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-
 	//WHEN USER PRESSES LOGIN BUTTON
 	$("#login-button").on("click", function(event) {
 		event.preventDefault();
@@ -126,5 +111,22 @@ $(function() {
 		}
 
 	})
+	function myFunction() {
+    	document.getElementById("nav-links").classList.toggle("show");
+	}
 
+	//CODE FOR MODAL TO WORK
+	var modal = document.getElementById("signup-modal");
+
+	$("#signup-link").on("click", function() {
+		modal.style.display = "block";
+	});
+	$(".close").on("click", function() {
+		modal.style.display = "none";
+	})
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
 })

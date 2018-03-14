@@ -52,13 +52,30 @@ button {
 .small-note {
 	font-size: 12px;
 }
+.show {
+	display:block;
+}
 #top-left-cloud{
 	position: fixed;
 	left: 5%;
 	top: 10%;
 	z-index: -2;
-
+	height: 100px;
+	width: 200px;
+	background-image: url("../images/cloud1.png");
 }
+/*#nav {
+	margin: 0 auto;
+	max-height: 100px;
+	max-width: 200px;
+	margin-top: 40px;
+	cursor: pointer;
+}
+#nav-links {
+	display: none;
+	position: absolute;
+	z-index: 4;
+}*/
 #center-right-cloud{
 	position: fixed;
 	right: 0%;
