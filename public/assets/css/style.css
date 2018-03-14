@@ -5,10 +5,11 @@ html
 	overflow-x: hidden;
 }
 body {
-	margin-top: 5%;
+	margin-top: 10%;
 	text-align: center;
 	font-family: 'Baloo', cursive;
-	font-size: 20px;
+	font-size: 19px;
+	letter-spacing: 1px;
 }
 h1 {
 	font-size: 56px;
@@ -24,11 +25,29 @@ h1, h2, h3 {
 }
 input {
 	height: 25px;
-	margin-left: 10px;
+	margin: 7px;
+	padding: 5px;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+button {
+	margin: 10px;
+	font-size: 19px;
 }
 .wrapping{
 	width: 100%;
 	z-index: 0;
+}
+.nonDraggableImage{
+    -webkit-user-drag: none;
+}
+.error-message {
+	color: yellow;
+	font-size: 14px;
+}
+.small-note {
+	font-size: 12px;
 }
 #top-left-cloud{
 	position: fixed;
@@ -65,12 +84,12 @@ input {
 #robot {
 	position: relative;
 	top: -39%;
-	margin-left: 55%;
+	margin-left: 50%;
 	z-index: 3;
 }
 #skyscraper {
 	position: relative;
-	width: 55%;
+	width: 50%;
 	min-height: 500px;
 /*	background-image: url("brick.png");
 	background-repeat: repeat;*/
@@ -130,9 +149,6 @@ input {
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.nonDraggableImage{
-    -webkit-user-drag: none;
-}
 
 /*LOGIN PAGE*/
 #login-box {
@@ -145,5 +161,37 @@ input {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 #form-group {
-	margin-top: 15%;
+	padding: 25px;
+}
+#signup-link {
+	color: blue;
+}
+#signup-link:hover {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#signup-modal {
+	display: none;
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 30%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0,0,0,0.4);
+}
+#modal-content{
+	background-color: white;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid black;
+	width: 60%;
+}
+.close {
+	float: right;
+	font-size: 36px;
+	cursor: pointer;
 }

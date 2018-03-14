@@ -1,13 +1,44 @@
-<h3>Log In</h3>
+<h2>Welcome</h2>
 <div id="login-box">
 	<div id="form-group">
 		<form>
-			<label for="username">Username </label>
-			<input type="text" max-length="15" name="username">
+			<label for="username">Username</label>
 			<br>
+			<input id="username" type="text" maxlength="15" name="username">
 			<br>
-			<label for="password">Password </label>
-			<input type="password" max-length="15" name="password">
+			<label for="password">Password</label>
+			<br>
+			<input id="password" type="password" maxlength="15" name="password">
+			<br>
+			<button id="login-button">Submit</button>
 		</form>
+		<div class="error-message" id="login-error"></div>
+		<div class="small-note">Don't have an account? <span id="signup-link">Sign up!</a></div>
+	</div>
+</div>
+<div id="signup-modal">
+	<div id="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Sign up</h2>
+		</div>
+		<div class="modal-body">
+			<form id="form-sign">
+				<label for="sign-name">Name</label>
+				<br>
+				<input id="sign-name" type="text" maxlength="15" name="sign-name">
+				<br>
+				<label for="sign-username">Username</label>
+				<br>
+				<input id="sign-username" type="text" maxlength="15" name="sign-username">
+				<br>
+				<label for="sign-password">Password</label>
+				<br>
+				<input id="sign-password" type="password" maxlength="15" name="sign-password">
+				<br>
+				<button id="signup-button">Submit</button>
+			</form>
+			<div class="error-message" id="signup-error"></div>
+		</div>
 	</div>
 </div>
