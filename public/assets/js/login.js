@@ -22,11 +22,27 @@ $(function() {
 		var password = $("#password").val().trim();
 		if(username && password)
 		{
-			
-			console.log("Whoo!");
+			$.get("/api/users/"+username).then(function(response){
+				if(response)
+				{
+					if(response.password === password)
+					{
+						window.location="/home/"+username+"/";
+					}
+					else
+					{
+						$("#login-error").text("Oops! Please try again");
+					}
+				}
+				else
+				{
+					$("#login-error").text("That username does not exist.");
+				}
+
+			});
 		}
 		else {
-			$("#login-error").text("Oops! Please try again")
+			$("#login-error").text("Oops! Please try again");
 		}
 
 	})
@@ -57,49 +73,48 @@ $(function() {
 		{
 			if(username)
 			{
-				$.get("/api/users/").then(function(response){
-					for(var i = 0; i < response.length; i++)
+				$.get("/api/users/"+username).then(function(response){
+					if(response === null)
 					{
-						if (response[i].username === username)
+						if(nameAppropriate)
 						{
-							$("#signup-error").text("Oh no! This username already exists! Try again");
-							break;
-						}
-					}
-				});
-				if(nameAppropriate)
-				{
-					if(password)
-					{
-						if (password.length >= 6)
-						{
-							var newUser = {
-								name: name,
-								username: username,
-								password: password
+							if(password !== null)
+							{
+								if (password.length >= 6)
+								{
+									var newUser = {
+										name: name,
+										username: username,
+										password: password
+									}
+									$.ajax("/api/users/", {
+										type: "POST",
+										data: newUser
+									}).then(
+									function() {
+										window.location="/home/"+username+"/";
+									})
+								}
+								else
+								{
+									$("#signup-error").text("Your password must be at least 6 characters long");
+								}
 							}
-							$.ajax("/api/users/", {
-								type: "POST",
-								data: newUser
-							}).then(
-							function() {
-								console.log("useradded");
-							})
+							else
+							{
+								$("#signup-error").text("Oops! Please enter a password.");
+							}
 						}
 						else
 						{
-							$("#signup-error").text("Your password must be at least 6 characters long");
+							$("#signup-error").text("Oops! A username can only contain letters and numbers.");
 						}
 					}
 					else
 					{
-						$("#signup-error").text("Oops! Please enter a password.");
+						$("#signup-error").text("This username is already taken. Try another!");
 					}
-				}
-				else
-				{
-					$("#signup-error").text("Oops! A username can only contain letters and numbers.");
-				}
+				});
 			}
 			else
 			{
