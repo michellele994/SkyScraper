@@ -1,6 +1,7 @@
 var request = require("request");
 var cheerio = require("cheerio");
 var db = require("./../models");
+var controller = require("./headline.js");
 var scrapeArticles = function(){
     //I learned this here: https://stackoverflow.com/questions/44265888/get-links-with-cheerio-issue-nodejs
     var customHeaderRequest = request.defaults({
@@ -16,15 +17,12 @@ var scrapeArticles = function(){
             var link = $(element).find("a").attr("href");
             var summary = $(element).find("p").text();
             if (title && link && summary) {
-                db.Headline.create({
+                var article = {
                     title: title,
                     link: link,
                     summary: summary
-                }).then(function(inserted) {
-                        console.log(inserted);
-                }).catch(function(err) {
-                    console.log(err);
-                });
+                }
+                controller.scrapeIt(article);
             }
         });
     });

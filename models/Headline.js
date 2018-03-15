@@ -24,7 +24,7 @@ var HeadlineSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var User = mongoose.model("Headline", HeadlineSchema);
+var Headline = mongoose.model("Headline", HeadlineSchema);
 
 // Export the Note model
-module.exports = User;
+module.exports = Headline;

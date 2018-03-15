@@ -14,7 +14,7 @@ var oneUser = function(username, res) {
         res.json(dbUsers);
     })
     .catch(function(err){
-        res.json(err);
+        return res.json(err);
     });
 }
 var createUser = function(req, res) {
@@ -23,7 +23,7 @@ var createUser = function(req, res) {
         res.json(dbUser);
     })
     .catch(function(err){
-        res.json(err);
+        return res.json(err);
     });
 }
 
