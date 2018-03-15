@@ -10,10 +10,10 @@ var scrapeIt = function(article) {
 var displayAllAPI = function(res) {
     db.Headline.find()
     .then(function(dbHeadline) {
-        res.json(dbHeadline);
+        return res.json(dbHeadline);
     })
     .catch(function(err){
-        return res.json(err);
+        res.json(err);
     })
 }
 module.exports = {

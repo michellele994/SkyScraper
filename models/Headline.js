@@ -9,13 +9,11 @@ var HeadlineSchema = new Schema({
   // `title` is of type String
   title: {
   	type: String,
-      trim: true,
-      unique: true
+      trim: true
   },
   link: {
   	type: String,
-      trim: true,
-      unique: true
+      trim: true
   },
   summary: {
   	type: String,
