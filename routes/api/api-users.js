@@ -1,4 +1,4 @@
-var controller = require("./../../controllers/user.js")
+var controller = require("./../../controllers/user.js");
 module.exports = function(router)
 {
 	router.get("/api/users/", function(req, res) {
