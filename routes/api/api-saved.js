@@ -1,9 +1,9 @@
+// var controller = require("./../../controllers/saved.js");
 // module.exports = function(router) {
-//     router.get("/scrape", function(req, res) {
-//         controller.scrapeArticles();
-//         res.end();
+//     router.get("/api/saved/:username", function(req, res) {
+//         controller.findAllSaved(res);
 //     })
-//     router.get("/api/articles", function(req, res) {
-//         headlineController.displayAllAPI(res);
+//     router.post("/api/saved/:username", function(req, res) {
+//         controller.saveTheArticle(req.params.username, req, res);
 //     })
 // }

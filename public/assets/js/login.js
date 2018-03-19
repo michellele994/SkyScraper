@@ -59,7 +59,7 @@ $(function() {
 			if(username)
 			{
 				$.get("/api/users/"+username).then(function(response){
-					if(response === null)
+					if(response.length === 0)
 					{
 						if(nameAppropriate)
 						{

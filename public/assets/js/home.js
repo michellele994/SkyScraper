@@ -1,9 +1,19 @@
 $(function() {
+    // //Extract unique username from the URL
+    var userInfo = window.location.pathname.substr(1, window.location.pathname.length);
+    userInfo = userInfo.substr(userInfo.indexOf("/") + 1, userInfo.length);
+    if (userInfo.indexOf("/") !== -1) {
+        var userName = userInfo.substr(0, userInfo.indexOf("/"));
+    } else {
+        userName = userInfo;
+    }
+    
     //WHEN USER PRESSES SCRAPE BUTTON
     $("#scrape-button").on("click", function() {
         $.get("/scrape").then(function(response){
             console.log("HALLO");
-            $.get("/api/articles/").then(function(resArticles) {
+            $.get("/api/articlesAvailable/"+userName).then(function(resArticles) {
+                $("#articles-place").empty();
                 for (var i = 0; i < resArticles.length; i++)
                 {
                     var article = $("<div>");
@@ -16,20 +26,21 @@ $(function() {
                     $(buttons).addClass("buttons");
                     $(buttons).append("<button class='save-button' data-articleId='"+resArticles[i]._id+"'>Save</button>");
                     $("#articles-place").append(buttons);
-
                 }
             })
         });
     });
 
     //WHEN USER PRESSES A SAVE BUTTON
-    $("#articles-place").on("click", ".save-button", function() {
-        var articleId = $(this).attr("data-articleId");
-        $.ajax("/api/savedArticles/", {
-            type: "POST",
-            data: {
-                articleId: articleId
-            }
-        });
-    });
+    // $("#articles-place").on("click", ".save-button", function() {
+    //     var articleId = $(this).attr("data-articleId");
+    //     $.ajax("/api/saved/"+userName, {
+    //         type: "POST",
+    //         data: {
+    //             articleId: articleId
+    //         }
+    //     }).then(function(){
+    //         console.log("This has been saved")
+    //     });
+    // });
 })

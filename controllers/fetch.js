@@ -1,7 +1,7 @@
 var request = require("request");
 var cheerio = require("cheerio");
 var db = require("./../models");
-var controller = require("./headline.js");
+var controller = require("./article.js");
 var scrapeArticles = function(){
     //I learned this here: https://stackoverflow.com/questions/44265888/get-links-with-cheerio-issue-nodejs
     var customHeaderRequest = request.defaults({

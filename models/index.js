@@ -1,6 +1,6 @@
 
 module.exports = {
 	User: require("./User"),
-  Headline: require("./Headline")
-  // Note: require("./Note")
+  	Article: require("./Article"),
+  	Comment: require("./Comment")
 };
