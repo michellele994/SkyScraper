@@ -11,8 +11,8 @@ $(function() {
     //WHEN USER PRESSES SCRAPE BUTTON
     $("#scrape-button").on("click", function() {
         $.get("/scrape").then(function(response){
-            console.log("HALLO");
             $.get("/api/articlesAvailable/"+userName).then(function(resArticles) {
+                console.log("HALLO");
                 $("#articles-place").empty();
                 for (var i = 0; i < resArticles.length; i++)
                 {
@@ -32,15 +32,15 @@ $(function() {
     });
 
     //WHEN USER PRESSES A SAVE BUTTON
-    // $("#articles-place").on("click", ".save-button", function() {
-    //     var articleId = $(this).attr("data-articleId");
-    //     $.ajax("/api/saved/"+userName, {
-    //         type: "POST",
-    //         data: {
-    //             articleId: articleId
-    //         }
-    //     }).then(function(){
-    //         console.log("This has been saved")
-    //     });
-    // });
+    $("#articles-place").on("click", ".save-button", function() {
+        var articleId = $(this).attr("data-articleId");
+        $.ajax("/api/users/"+userName, {
+            type: "POST",
+            data: {
+                articleId: articleId
+            }
+        }).then(function(){
+            console.log("This has been saved")
+        });
+    });
 })

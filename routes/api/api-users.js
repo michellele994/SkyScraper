@@ -10,4 +10,7 @@ module.exports = function(router)
 	router.post("/api/users/", function(req, res) {
 		controller.createUser(req, res);
 	});
+	router.post("/api/users/:username", function(req, res) {
+        controller.saveTheArticle(req.params.username, req, res);
+    })
 }

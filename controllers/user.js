@@ -25,9 +25,20 @@ var createUser = function(req, res) {
         return console.log(err);
     });
 }
+var saveTheArticle = function(username, req, res) {
+    db.User.updateOne({username: username}, {$addToSet: {saved: req.body.articleId}})
+    .then(function(thisUser){
+        console.log("saving had occured");
+        res.end();
+    })
+    .catch(function(err) {
+        return console.log(err);
+    })
+}
 
 module.exports = {
     allUsers: allUsers,
     oneUser: oneUser,
-    createUser: createUser
+    createUser: createUser,
+    saveTheArticle: saveTheArticle
 }

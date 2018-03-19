@@ -16,7 +16,7 @@ var displayAllAPI = function(res) {
 var findAvailableArticles = function(username, res) {
     db.User.findOne({username: username})
     .then(function(thisUser) {
-        db.Article.find({})
+        db.Article.find({_id:{ $nin: thisUser.saved }})
         .then(function(availableArticles) {
             res.json(availableArticles);
         })
