@@ -6,20 +6,24 @@
 	<a href="/">Logout</a>
 </div>
 <button id="scrape-button">Scrape!</button> <button id="saved-articles-button" data-username="{{thisUser.username}}">View Saved Articles</button>
-<div id="articles-place">{{#each availableArticles}}
-	<div class="article">
-		<br>
-		<a href="{{this.link}}"><div class='article-title'>{{this.title}}
-		</div></a>
-		<br>
-		<div class='article-summary'>{{this.summary}}</div>
-		<br>
-		<div class="buttons">
-			<button class='save-button' data-articleId="{{this._id}}">Save</button>
+<div id="articles-place">
+	{{#each availableArticles}}
+		<div class="article">
+			<br>
+			<a href="{{this.link}}"><div class='article-title'>{{this.title}}
+			</div></a>
+			<br>
+			<div class='article-summary'>{{this.summary}}</div>
+			<br>
+			<div class="buttons">
+				<button class='save-button' data-articleId="{{this._id}}">Save</button>
+			</div>
+			<div class="commentsAvailable">
+				<a href="/article/{{this._id}}/{{../thisUser.username}}">View comments</a>
+			</div>
 		</div>
-		<div class="commentsAvailable">
-			<a href="/article/{{this._id}}/{{../thisUser.username}}">View comments</a>
-		</div>
-	</div>
-	<br>
-{{/each}}</div>
+		<br>
+		{{else}}
+		Scrape some articles!
+	{{/each}}
+</div>
