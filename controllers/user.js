@@ -10,7 +10,7 @@ var allUsers = function(res) {
     })
 }
 var oneUser = function(username, res) {
-	db.User.find({username: username})
+	db.User.findOne({username: username})
 	.then(function(thisUser){
 		res.json(thisUser);
 	})

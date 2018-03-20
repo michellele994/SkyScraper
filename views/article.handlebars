@@ -1,0 +1,39 @@
+<div id="robot-textbox">
+	<div id="robot-text">
+		Wow, what an interesting article. I'll try to find more like this one in the future.
+	</div>
+	<a href="/">Logout</a>
+</div>
+<button id="home-button" data-username="{{username}}">Home</button><button id="saved-articles-button" data-username="{{username}}">View Saved Articles</button>
+<h3>{{thisArticle.title}}</h3>
+<div class= "article">
+	{{thisArticle.summary}}
+</div> 
+<a href="{{link}}"> Click here to read more</a>
+<br>
+<br>
+<h4>Comments</h4>
+{{#each comments}}
+<div class="article">
+	<span style="text-decoration: underline">{{this.title}}</span>
+	<br>
+	{{this.body}}
+	<br>
+	Posted by: {{this.username}}
+	<br>
+	<button class="delete-comment" data-commentId="{{this._id}}" data-username="{{this.username}}" data-articleId="{{this.articleId}}">Delete</button>
+</div>
+{{else}}
+There are no comments available! Add some!
+{{/each}}
+<form id="form-comment">
+	<label for="input-comment-title">Title</label>
+	<br>
+	<input id="input-comment-title" type="text" maxlength="100" name="input-comment-title">
+	<br>
+	<label for="input-comment-body">Comment</label>
+	<br>
+	<textarea rows="4" id="input-comment-body" type="text" maxlength="200" name="input-comment-body"></textarea>
+	<br>
+	<button id="comment-button" data-articleId="{{thisArticle._id}}" data-username="{{username}}">Submit</button>
+</form>

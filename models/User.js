@@ -29,8 +29,8 @@ var UserSchema = new Schema({
 		"Password should be longer"
   	]
   },
-  saved: [{type: Schema.Types.ObjectId, ref: "Article"}],
-  comment: [{type: Schema.Types.ObjectId, ref: "Comment"}]
+  saved: [],
+  comment: []
 });
 
 // This creates our model from the above schema, using mongoose's model method

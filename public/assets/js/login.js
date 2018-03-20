@@ -23,7 +23,6 @@ $(function() {
 				{
 					$("#login-error").text("That username does not exist.");
 				}
-
 			});
 		}
 		else {
@@ -59,7 +58,7 @@ $(function() {
 			if(username)
 			{
 				$.get("/api/users/"+username).then(function(response){
-					if(response.length === 0)
+					if(response === null || response.length === 0)
 					{
 						if(nameAppropriate)
 						{

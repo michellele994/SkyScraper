@@ -1,17 +1,69 @@
 var db = require("./../../models");
+var controller = require("./../../controllers/article.js");
 module.exports = function(router)
 {
 	router.get("/", function(req, res) {
 		res.render("login")
 	});
+
 	router.get("/home/:username", function(req, res) {
 		db.User.findOne({username: req.params.username})
-		.then(function(dbUser)
-		{
-			var renderUser = {
-				dbUser: dbUser
-			}
-			res.render("home", renderUser)
+	    .then(function(thisUser) {
+	        db.Article.find({_id:{ $nin: thisUser.saved }})
+	        .then(function(availableArticles) {
+	        	var available = {
+	        		thisUser: thisUser,
+	        		availableArticles: availableArticles
+	        	}
+	            res.render("home", available)
+	        })
+	        .catch(function(err){
+	            res.json(err);
+	        })
+	    })
+	    .catch(function(err) {
+	        res.json(err);
+	    })
+	});
+
+	router.get("/savedArticles/:username", function(req, res) {
+		db.User.findOne({username: req.params.username})
+	    .then(function(thisUser) {
+	        db.Article.find({_id:{ $in: thisUser.saved }})
+	        .then(function(availableArticles) {
+	        	var available = {
+	        		thisUser: thisUser,
+	        		availableArticles: availableArticles
+	        	}
+	            res.render("saved", available)
+	        })
+	        .catch(function(err){
+	            res.json(err);
+	        })
+	    })
+	    .catch(function(err) {
+	        res.json(err);
+	    })
+	});
+
+	router.get("/article/:articleId/:username", function(req, res) {
+		db.Article.findOne({_id: req.params.articleId})
+		.then(function(thisArticle) {
+			db.Comment.find({articleId: req.params.articleId})
+			.then(function(dbComments){
+				var articleInfo = {
+					username: req.params.username,
+					thisArticle:thisArticle,
+					comments: dbComments
+				}
+				res.render("article", articleInfo);
+			})
+			.catch(function(err){
+				res.json(err);
+			})
+		})
+		.catch(function(err) {
+			res.json(err);
 		})
 	});
 }

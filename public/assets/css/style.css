@@ -236,3 +236,15 @@ button {
 .article-summary{
 	font-size: 16px;
 }
+.buttons{
+	text-align: right;
+}
+.commentsAvailable {
+	text-align: right;
+}
+#input-comment-title {
+	width: 80%;
+}
+#input-comment-body {
+	width: 80%;
+}

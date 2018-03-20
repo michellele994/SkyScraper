@@ -1,10 +1,25 @@
 <div id="robot-textbox">
 	<div id="robot-text">
-		Hello, <span class="titleize">{{dbUser.name}}</span>.
+		Hello, <span class="titleize">{{thisUser.name}}</span>.
 		<br>Let me scrape you some articles about the weather.
 	</div>
 	<a href="/">Logout</a>
 </div>
-<button id="scrape-button">Scrape</button>
-<button class="save-button">Test</button>
-<div id="articles-place"></div>
+<button id="scrape-button">Scrape!</button> <button id="saved-articles-button" data-username="{{thisUser.username}}">View Saved Articles</button>
+<div id="articles-place">{{#each availableArticles}}
+	<div class="article">
+		<br>
+		<a href="{{this.link}}"><div class='article-title'>{{this.title}}
+		</div></a>
+		<br>
+		<div class='article-summary'>{{this.summary}}</div>
+		<br>
+		<div class="buttons">
+			<button class='save-button' data-articleId="{{this._id}}">Save</button>
+		</div>
+		<div class="commentsAvailable">
+			<a href="/article/{{this._id}}/{{../thisUser.username}}">{{this.comment.length}} comments</a>
+		</div>
+	</div>
+	<br>
+{{/each}}</div>
