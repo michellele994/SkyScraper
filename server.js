@@ -20,10 +20,18 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static(__dirname + "/public"));
 
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/homeworkSkyScraper", {
-	useMongoClient: true
-});
+var databaseUri = "mongodb://localhost/homeworkSkyScraper";
+
+if(process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+	mongoose.connect(databaseUri);
+}
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/homeworkSkyScraper", {
+// 	useMongoClient: true
+// });
 
 //set handlebars
 var exphbs = require("express-handlebars");
