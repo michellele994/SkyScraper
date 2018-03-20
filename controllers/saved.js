@@ -1,5 +1,6 @@
 var db = require("./../models");
 
+//TO FIND ALL SAVED ARTICLES
 var findAllSaved = function(res) {
     db.SavedArticle.find()
     .then(function(dbSaved){
@@ -9,6 +10,8 @@ var findAllSaved = function(res) {
         return res.json(err);
     })
 }
+
+//TO SAVE AN ARTICLE
 var saveTheArticle = function(username, req, res) {
         db.AllArticle.findOne({_id: req.body.articleId})
         .then(function(thisArticle){

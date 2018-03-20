@@ -2,10 +2,12 @@ var db = require("./../../models");
 var controller = require("./../../controllers/article.js");
 module.exports = function(router)
 {
+	//FOR LOGIN PAGE
 	router.get("/", function(req, res) {
 		res.render("login")
 	});
 
+	//FOR HOME PAGE (viewing scraped articles)
 	router.get("/home/:username", function(req, res) {
 		db.User.findOne({username: req.params.username})
 	    .then(function(thisUser) {
@@ -26,6 +28,7 @@ module.exports = function(router)
 	    })
 	});
 
+	//FOR SAVED ARTICLES PAGE
 	router.get("/savedArticles/:username", function(req, res) {
 		db.User.findOne({username: req.params.username})
 	    .then(function(thisUser) {
@@ -46,6 +49,7 @@ module.exports = function(router)
 	    })
 	});
 
+	//WHEN A USER VIEWS COMMENTS ON AN ARTICLE
 	router.get("/article/:articleId/:username", function(req, res) {
 		db.Article.findOne({_id: req.params.articleId})
 		.then(function(thisArticle) {

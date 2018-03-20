@@ -1,6 +1,7 @@
 var ObjectId = require('mongoose').Types.ObjectId;
 var db = require("./../models");
 
+//TO POST A COMMENT
 var postComment = function(req, res) {
     db.Comment.create({
         username: req.body.username,
@@ -25,6 +26,7 @@ var postComment = function(req, res) {
         console.log(err);
     });
 }
+//TO DELETE A COMMENT
 var deleteComment = function(req, res) {
     console.log(req.body.commentId);
         db.Article.update({}, {$pull:{comment: new ObjectId(req.body.commentId)}})
@@ -47,27 +49,6 @@ var deleteComment = function(req, res) {
         .catch(function(err){
             console.log(err);
         })
-
-
-    // db.Comment.deleteOne({_id: req.body.commentId})
-    // .then(function(deleted) {
-    //     console.log(deleted);
-    //     db.User.updateOne({username: req.body.userName}, {$pullAll: {comment: [req.body.commentId]}})
-    //     .then(function(updatedUser){
-    //         db.Article.updateOne({_id: req.body.articleId}, {$pullAll: {comment: [req.body.commentId]}})
-    //         .then(function(updatedArticle){
-    //             res.end();
-    //         })
-    //         .catch(function(err){
-    //             console.log(err);
-    //         })
-    //     })
-    //     .catch(function(err) {
-    //         console.log(err);
-    //     })
-    // }).catch(function(err) {
-    //     console.log(err);
-    // });
 }
 var displayAllComments = function(res) {
     db.Comment.find()
@@ -78,17 +59,6 @@ var displayAllComments = function(res) {
          res.json(err);
     })
 }
-
-// var saveTheArticle = function(username, req, res) {
-//     db.User.updateOne({username: username}, {$addToSet: {saved: req.body.articleId}})
-//     .then(function(thisUser){
-//         console.log("saving had occured");
-//         res.end();
-//     })
-//     .catch(function(err) {
-//         return console.log(err);
-//     })
-// }
 
 module.exports = {
     postComment: postComment,

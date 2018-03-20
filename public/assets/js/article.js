@@ -1,13 +1,18 @@
 $(function() {
+
+
+    //WHEN USER PRESSES HOME BUTTON
     $("#home-button").on("click", function() {
         var userName = $(this).attr("data-username");
         window.location="/home/"+userName+"/";
     });
+    //WHEN USER PRESSES SAVED ARTICLES BUTTON
     $("#saved-articles-button").on("click", function() {
         var userName = $(this).attr("data-username");
         window.location="/savedArticles/"+userName+"/";
     });
 
+    //WHEN USER PRESSES TO POST COMMENT
     $("#comment-button").on("click", function() {
         var articleId = $(this).attr("data-articleId");
         var userName = $(this).attr("data-username");
@@ -22,10 +27,11 @@ $(function() {
                 commentBody: commentBody
             }
         }).then(function(){
-            console.log("Comment had been posted")
+            location.reload();
         });
     });
 
+    //WHEN A USER PRESSES TO DELETE A COMMENT
     $(".delete-comment").on("click", function() {
         var articleId = $(this).attr("data-articleId");
         var userName = $(this).attr("data-username");

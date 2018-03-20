@@ -1,5 +1,6 @@
 var db = require("./../models");
 
+//TO SCRAPE ARTICLES
 var scrapeIt = function(article) {
     db.Article.create(article).then(function(inserted) {
         return console.log(inserted);
@@ -7,12 +8,16 @@ var scrapeIt = function(article) {
         return console.log(err);
     });
 }
+
+//TO DISPLAY ALL ARTICLES
 var displayAllAPI = function(res) {
     db.Article.find()
     .then(function(dbArticle) {
         res.json(dbArticle);
     })
 }
+
+//TO FIND ALL AVAIALBLE ARTICLES FOR USER
 var findAvailableArticles = function(username, res) {
     db.User.findOne({username: username})
     .then(function(thisUser) {

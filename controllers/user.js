@@ -1,5 +1,6 @@
 var db = require("./../models");
 
+//TO FIND ALL USERS
 var allUsers = function(res) {
     db.User.find()
     .then(function(dbUser){
@@ -9,6 +10,8 @@ var allUsers = function(res) {
         return res.json(err);
     })
 }
+
+//TO FIND ONE USER
 var oneUser = function(username, res) {
 	db.User.findOne({username: username})
 	.then(function(thisUser){
@@ -18,6 +21,8 @@ var oneUser = function(username, res) {
         return res.json(err);
     })
 }
+
+//TO CREATE A USER
 var createUser = function(req, res) {
 	db.User.create(req.body).then(function(inserted) {
         res.end();
@@ -25,6 +30,8 @@ var createUser = function(req, res) {
         return console.log(err);
     });
 }
+
+//TO SAVE AN ARTICLE
 var saveTheArticle = function(username, req, res) {
     db.User.updateOne({username: username}, {$addToSet: {saved: req.body.articleId}})
     .then(function(thisUser){

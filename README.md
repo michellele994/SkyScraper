@@ -1,5 +1,6 @@
 # SkyScraper
 **Please note not to use real passwords when using this application. Authentication has not been added**
+
 Using Express Node to create an application that works with MongoDB, Mongoose, Cheerio, and Handlebars, SkyScraper is an application where users can scrape articles from www.accuweather.com to view articles about the weather. They can save articles, leave comments, and delete comments. You can view this project here: https://powerful-shore-41576.herokuapp.com/.
 
 ## How to Begin
