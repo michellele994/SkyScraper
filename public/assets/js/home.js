@@ -12,7 +12,9 @@ $(function() {
     $("#scrape-button").on("click", function() {
         $.get("/scrape").then(function(response){
             $.get("/api/articlesAvailable/"+userName).then(function(resArticles) {
-                location.reload();
+                setTimeout(function() {
+                    location.reload();
+                }, 1000);
                 // $("#articles-place").empty();
                 // for (var i = 0; i < resArticles.length; i++)
                 // {
