@@ -1,7 +1,19 @@
 # SkyScraper
 **Please note not to use real passwords when using this application. Authentication has not been added**
+This project was a homework due for the Trilogy & University of Arizona Coding Bootcamp. This project was intended to hone my skills in
+ * HTML
+ * CSS
+ * Handlebars
+ * Javascript
+ * jQuery
+ * ExpressJS
+ * AJAX
+ * MongoDB
+ * Mongoose
+ * Cheerio
+ * Heroku
 
-Using Express Node to create an application that works with MongoDB, Mongoose, Cheerio, and Handlebars, SkyScraper is an application where users can scrape articles from www.accuweather.com to view articles about the weather. They can save articles, leave comments, and delete comments. You can view this project here: https://powerful-shore-41576.herokuapp.com/.
+Using Express Node to create an application that works with MongoDB, Mongoose, Cheerio, and Handlebars, SkyScraper is an application where users can scrape articles from www.accuweather.com to view articles about the weather. They can save articles, leave comments, and delete comments. You can view this project [here](https://powerful-shore-41576.herokuapp.com/).
 
 ## How to Begin
  * Log in or create a user that will be added to the database by clicking the "Sign up" buton.
